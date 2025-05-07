@@ -3,7 +3,11 @@ import { TCategory } from './category.interface';
 
 const categorySchema = new Schema<TCategory>(
   {
-    name: { type: String, required: true },
+    name: {
+      type: String,
+      enum: ['Fiction', 'Science', 'SelfDevelopment', 'Poetry', 'Religious'],
+      required: true,
+    },
 
     imageURL: { type: String, required: true },
   },

@@ -3,7 +3,13 @@ import { z } from 'zod';
 
 const CreateCategoryValidationSchema = z.object({
   body: z.object({
-    name: z.string().nonempty('Title is required'),
+    name: z.enum([
+      'Fiction',
+      'Science',
+      'SelfDevelopment',
+      'Poetry',
+      'Religious',
+    ]),
     imageURL: z.string().nonempty('Image is required'),
   }),
 });
@@ -11,7 +17,9 @@ const CreateCategoryValidationSchema = z.object({
 //updated shcema
 const updateCategoryValidationShema = z.object({
   body: z.object({
-    name: z.string().optional(),
+    name: z
+      .enum(['Fiction', 'Science', 'SelfDevelopment', 'Poetry', 'Religious'])
+      .optional(),
     imageURL: z.string().optional(),
   }),
 });

@@ -9,12 +9,11 @@ const BookValidationSchema = z.object({
       .min(0, { message: 'Price must be a positive number' })
       .nonnegative()
       .refine((value) => value !== null, { message: 'Price is required' }),
-    category: z.enum(
-      ['Fiction', 'Science', 'SelfDevelopment', 'Poetry', 'Religious'],
-      {
+    category: z
+      .enum(['Fiction', 'Science', 'SelfDevelopment', 'Poetry', 'Religious'], {
         required_error: 'Category is required',
-      },
-    ),
+      })
+      .optional(),
     description: z.string().nonempty('Description is required'),
     quantity: z
       .number()

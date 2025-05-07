@@ -14,7 +14,7 @@ const bookSchema = new Schema<TBook>(
     category: {
       type: String,
       enum: ['Fiction', 'Science', 'SelfDevelopment', 'Poetry', 'Religious'],
-      required: true,
+      required: false,
     },
     description: { type: String, required: true },
     quantity: { type: Number, required: true },
