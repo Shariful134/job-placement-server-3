@@ -13,7 +13,7 @@ app.use(cookiePerser());
 
 app.use(
   cors({
-    origin: ['https://book-shop-client-theta.vercel.app'],
+    origin: ['http://localhost:5173'],
     credentials: true,
   }),
 );
@@ -22,7 +22,7 @@ app.use(
 app.use('/api/v1/', router);
 
 app.get('/', (req: Request, res: Response) => {
-  res.send('Hello World!');
+  res.send('This is Your BookShop server!');
 });
 
 // Error Handler

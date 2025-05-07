@@ -1,8 +1,9 @@
-import { model, Schema } from 'mongoose';
+import { model, Schema, Types } from 'mongoose';
 import { TBook } from './book.interface';
 
 const bookSchema = new Schema<TBook>(
   {
+    categoryId: { type: Types.ObjectId, ref: 'Category', required: true },
     title: { type: String, required: true },
     author: { type: String, required: true },
     price: {
@@ -20,7 +21,7 @@ const bookSchema = new Schema<TBook>(
     inStock: { type: Boolean, default: true },
     publicationDate: { type: String, required: true },
     publisher: { type: String, required: true },
-    imageURL: { type: String, required: true },
+    imageURL: { type: [String], required: true },
   },
   { timestamps: true },
 );

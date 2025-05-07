@@ -26,7 +26,9 @@ const BookValidationSchema = z.object({
       .refine((value) => value !== null, { message: 'InStock is required' }),
     publicationDate: z.string().nonempty('publicationDate is required'),
     publisher: z.string().nonempty('publisher is required'),
-    imageURL: z.string().nonempty('Image is required'),
+    imageURL: z
+      .array(z.string().url({ message: 'Each image must be a valid URL' }))
+      .min(1, { message: 'At least one image is required' }),
   }),
 });
 
@@ -46,7 +48,7 @@ const updateValidationShema = z.object({
       .optional(),
     publicationDate: z.string().optional(),
     publisher: z.string().optional(),
-    imageURL: z.string().optional(),
+    imageURL: z.array(z.string().url()).optional(),
   }),
 });
 

@@ -1,4 +1,7 @@
+import { ObjectId } from 'mongoose';
+
 export type TBook = {
+  categoryId: ObjectId;
   title: string;
   author: string;
   price: number;
@@ -8,5 +11,5 @@ export type TBook = {
   inStock: boolean;
   publicationDate: string;
   publisher: string;
-  imageURL: string;
+  imageURL: string[];
 };
