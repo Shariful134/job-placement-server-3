@@ -19,7 +19,6 @@ router.get('/get-book', bookController.getAllBook);
 router.get('/get-book/:id', bookController.getSingleBook);
 
 //update cart
-
 router.patch(
   '/update-book/:id',
   auth(USER_ROLE.admin),

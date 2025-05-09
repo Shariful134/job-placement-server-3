@@ -17,7 +17,7 @@ const getBookIntoDB = async () => {
 };
 
 const getSingleBookIntoDB = async (id: string) => {
-  const result = await Book.findById(id).populate('Category');
+  const result = await Book.findById(id).populate('categoryId');
   if (!result) {
     throw new AppError(StatusCodes.NOT_FOUND, 'Book is not found');
   }

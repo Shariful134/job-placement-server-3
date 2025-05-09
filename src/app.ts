@@ -13,7 +13,8 @@ app.use(cookiePerser());
 
 app.use(
   cors({
-    origin: ['http://localhost:5173'],
+    origin: ['https://job-placement-client-3.vercel.app'],
+    // origin: ['http://localhost:5173'],
     credentials: true,
   }),
 );
